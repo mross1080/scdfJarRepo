@@ -1,0 +1,983 @@
+ <PMML>                                   
+   <Header copyright="Copyright (c) 2015 gpadmin">
+     <Extension extender="MADlib" name="user" value="gpadmin"/>
+     <Application name="MADlib" version="1.8"/>
+     <Timestamp>
+       2015-11-24 16:11:24.747710 PDT
+     </Timestamp>
+   </Header>
+   <DataDictionary numberOfFields="25">
+     <DataField dataType="boolean" name="ybool" optype="categorical">
+       <Value value="True"/>
+       <Value value="False"/>
+     </DataField>
+     <DataField dataType="double" name="one" optype="continuous"/>
+     <DataField dataType="double" name="age" optype="continuous"/>
+     <DataField dataType="double" name="gender" optype="continuous"/>
+     <DataField dataType="double" name="city_pop" optype="continuous"/>
+     <DataField dataType="double" name="holiday" optype="continuous"/>
+     <DataField dataType="double" name="post_holiday" optype="continuous"/>
+     <DataField dataType="double" name="summer" optype="continuous"/>
+     <DataField dataType="double" name="prev_grocery_pos" optype="continuous"/>
+     <DataField dataType="double" name="prev_travel" optype="continuous"/>
+     <DataField dataType="double" name="prev_gas_transport" optype="continuous"/>
+     <DataField dataType="double" name="prev_entertainment" optype="continuous"/>
+     <DataField dataType="double" name="prev_pharmacy" optype="continuous"/>
+     <DataField dataType="double" name="prev_misc_pos" optype="continuous"/>
+     <DataField dataType="double" name="prev_home" optype="continuous"/>
+     <DataField dataType="double" name="prev_grocery_net" optype="continuous"/>
+     <DataField dataType="double" name="prev_food_dining" optype="continuous"/>
+     <DataField dataType="double" name="prev_health_fitness" optype="continuous"/>
+     <DataField dataType="double" name="prev_kids_pets" optype="continuous"/>
+     <DataField dataType="double" name="prev_shopping_pos" optype="continuous"/>
+     <DataField dataType="double" name="prev_utilities" optype="continuous"/>
+     <DataField dataType="double" name="prev_misc_net" optype="continuous"/>
+     <DataField dataType="double" name="prev_personal_care" optype="continuous"/>
+     <DataField dataType="double" name="prev_shopping_net" optype="continuous"/>
+     <DataField dataType="string" name="y_category" optype="categorical"/>
+   </DataDictionary>
+   <MiningModel functionName="classification">
+     <MiningSchema>
+       <MiningField name="ybool" usageType="predicted"/>
+       <MiningField name="one"/>
+       <MiningField name="age"/>
+       <MiningField name="gender"/>
+       <MiningField name="city_pop"/>
+       <MiningField name="holiday"/>
+       <MiningField name="post_holiday"/>
+       <MiningField name="summer"/>
+       <MiningField name="prev_grocery_pos"/>
+       <MiningField name="prev_travel"/>
+       <MiningField name="prev_gas_transport"/>
+       <MiningField name="prev_entertainment"/>
+       <MiningField name="prev_pharmacy"/>
+       <MiningField name="prev_misc_pos"/>
+       <MiningField name="prev_home"/>
+       <MiningField name="prev_grocery_net"/>
+       <MiningField name="prev_food_dining"/>
+       <MiningField name="prev_health_fitness"/>
+       <MiningField name="prev_kids_pets"/>
+       <MiningField name="prev_shopping_pos"/>
+       <MiningField name="prev_utilities"/>
+       <MiningField name="prev_misc_net"/>
+       <MiningField name="prev_personal_care"/>
+       <MiningField name="prev_shopping_net"/>
+       <MiningField name="y_category"/>
+     </MiningSchema>
+     <Segmentation multipleModelMethod="selectFirst">
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="shopping_pos"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="0.352042017158" name="one"/>
+             <NumericPredictor coefficient="-0.0145729878406" name="age"/>
+             <NumericPredictor coefficient="0.310271558356" name="gender"/>
+             <NumericPredictor coefficient="-0.000268704243736" name="city_pop"/>
+             <NumericPredictor coefficient="0.296069822894" name="holiday"/>
+             <NumericPredictor coefficient="-0.374389550417" name="post_holiday"/>
+             <NumericPredictor coefficient="1.12396351145" name="summer"/>
+             <NumericPredictor coefficient="0.0213187561175" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="0.0491574783739" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.154958457446" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="0.0256149072503" name="prev_entertainment"/>
+             <NumericPredictor coefficient="0.00491608581232" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.118826130681" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.0321940550973" name="prev_home"/>
+             <NumericPredictor coefficient="-0.116790628387" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0727623970124" name="prev_food_dining"/>
+             <NumericPredictor coefficient="-0.164533433944" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.0172766493697" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.133015969119" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="-0.0143090735738" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.0958677940872" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.0352963279421" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.0888596427175" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="grocery_pos"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="-2.04952443867" name="one"/>
+             <NumericPredictor coefficient="0.0522310343621" name="age"/>
+             <NumericPredictor coefficient="0.339384679095" name="gender"/>
+             <NumericPredictor coefficient="0.000108669183798" name="city_pop"/>
+             <NumericPredictor coefficient="0.386321808123" name="holiday"/>
+             <NumericPredictor coefficient="-0.259278935831" name="post_holiday"/>
+             <NumericPredictor coefficient="1.23861310178" name="summer"/>
+             <NumericPredictor coefficient="-0.131356864279" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="0.057877721279" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.0972637424065" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.0132528103227" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.151898767058" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.0153457215968" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.0607554213231" name="prev_home"/>
+             <NumericPredictor coefficient="-0.0392886527537" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0280504225486" name="prev_food_dining"/>
+             <NumericPredictor coefficient="0.0707127712804" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.109903289612" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="0.0367624231363" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="-0.0518924094873" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.111213940324" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.125259717297" name="prev_personal_care"/>
+             <NumericPredictor coefficient="0.0306601995372" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="gas_transport"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="0.646190246445" name="one"/>
+             <NumericPredictor coefficient="0.00863700469481" name="age"/>
+             <NumericPredictor coefficient="0.0515339289175" name="gender"/>
+             <NumericPredictor coefficient="-0.00150045627873" name="city_pop"/>
+             <NumericPredictor coefficient="0.389794325158" name="holiday"/>
+             <NumericPredictor coefficient="-0.532994409357" name="post_holiday"/>
+             <NumericPredictor coefficient="1.13803138075" name="summer"/>
+             <NumericPredictor coefficient="-0.0290225557493" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.0893790450101" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.0917162399943" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="0.0455466176707" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.139306401403" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.0946537773255" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.0306130655869" name="prev_home"/>
+             <NumericPredictor coefficient="-0.023744794107" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0939150512221" name="prev_food_dining"/>
+             <NumericPredictor coefficient="0.0214224703424" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.0402898271116" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.112437936401" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="-0.0673062460591" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.0131495953931" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.207486628695" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.123912925711" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="misc_pos"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="1.82631104681" name="one"/>
+             <NumericPredictor coefficient="-0.0659605290408" name="age"/>
+             <NumericPredictor coefficient="-0.126906793576" name="gender"/>
+             <NumericPredictor coefficient="-0.000512524849012" name="city_pop"/>
+             <NumericPredictor coefficient="0.227501307899" name="holiday"/>
+             <NumericPredictor coefficient="-0.493288949021" name="post_holiday"/>
+             <NumericPredictor coefficient="0.950741630962" name="summer"/>
+             <NumericPredictor coefficient="-0.11032726333" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.0640037297043" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.160221981543" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.0631069441345" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.120024762856" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.0166302287081" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.136756572934" name="prev_home"/>
+             <NumericPredictor coefficient="-0.0962776875415" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0418585551632" name="prev_food_dining"/>
+             <NumericPredictor coefficient="-0.153392861616" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="0.0440110739711" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.0275239123236" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="0.0435312290277" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.0147026050207" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.0828861112973" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.21280957874" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="personal_care"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="0.933620150583" name="one"/>
+             <NumericPredictor coefficient="-0.0348086657474" name="age"/>
+             <NumericPredictor coefficient="0.0408025268596" name="gender"/>
+             <NumericPredictor coefficient="-0.00119523468953" name="city_pop"/>
+             <NumericPredictor coefficient="0.382586305124" name="holiday"/>
+             <NumericPredictor coefficient="-0.66113620669" name="post_holiday"/>
+             <NumericPredictor coefficient="1.04065426565" name="summer"/>
+             <NumericPredictor coefficient="-0.0907199957369" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.0662075611421" name="prev_travel"/>
+             <NumericPredictor coefficient="0.0744684349167" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.0655588505261" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.0878766493401" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.0599450057308" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.141543429225" name="prev_home"/>
+             <NumericPredictor coefficient="0.0624830665109" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0019818835506" name="prev_food_dining"/>
+             <NumericPredictor coefficient="-0.0756789221936" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.0230367634594" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.144771000235" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="-0.000634992154722" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.00850591826919" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.158183409065" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.148534589178" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="food_dining"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="1.20624737601" name="one"/>
+             <NumericPredictor coefficient="-0.0292531075252" name="age"/>
+             <NumericPredictor coefficient="-0.107007263038" name="gender"/>
+             <NumericPredictor coefficient="-0.00139669997219" name="city_pop"/>
+             <NumericPredictor coefficient="0.237278630195" name="holiday"/>
+             <NumericPredictor coefficient="-0.65120134841" name="post_holiday"/>
+             <NumericPredictor coefficient="1.11447923143" name="summer"/>
+             <NumericPredictor coefficient="-0.0483280419256" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.0626265693299" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.0716147032669" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.161618437681" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.0806598657789" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.128456440663" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="0.0229484146525" name="prev_home"/>
+             <NumericPredictor coefficient="-0.087384479392" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0382051384462" name="prev_food_dining"/>
+             <NumericPredictor coefficient="-0.0297571758073" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.147412518993" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.153129242636" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="-0.0988392964331" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.222081608754" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.135859037572" name="prev_personal_care"/>
+             <NumericPredictor coefficient="0.0233365839442" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="pharmacy"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="0.358492156044" name="one"/>
+             <NumericPredictor coefficient="-0.0106449129453" name="age"/>
+             <NumericPredictor coefficient="-0.0839663278347" name="gender"/>
+             <NumericPredictor coefficient="-0.000790735021867" name="city_pop"/>
+             <NumericPredictor coefficient="0.220650509856" name="holiday"/>
+             <NumericPredictor coefficient="-0.420653337942" name="post_holiday"/>
+             <NumericPredictor coefficient="1.11562741226" name="summer"/>
+             <NumericPredictor coefficient="-0.0958599007112" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.0773423644214" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.0440291530256" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.145680393422" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.209396041467" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="0.00645473465935" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="0.0651636473558" name="prev_home"/>
+             <NumericPredictor coefficient="-0.0504101436977" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0697287750918" name="prev_food_dining"/>
+             <NumericPredictor coefficient="-0.122876582291" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.0826099745858" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.047976850239" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="0.0174365014084" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.108032676447" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.127184108081" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.0608150719521" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="health_fitness"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="1.13317648271" name="one"/>
+             <NumericPredictor coefficient="-0.0456975831981" name="age"/>
+             <NumericPredictor coefficient="-0.132683914872" name="gender"/>
+             <NumericPredictor coefficient="3.88600417903e-05" name="city_pop"/>
+             <NumericPredictor coefficient="0.370909462234" name="holiday"/>
+             <NumericPredictor coefficient="-0.486844517506" name="post_holiday"/>
+             <NumericPredictor coefficient="1.01677185287" name="summer"/>
+             <NumericPredictor coefficient="-0.137091641319" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.0410832419475" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.0165120358372" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.13806648226" name="prev_entertainment"/>
+             <NumericPredictor coefficient="0.00847230108969" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.0445030595733" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.0525941955662" name="prev_home"/>
+             <NumericPredictor coefficient="-0.0568882943512" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.153709886853" name="prev_food_dining"/>
+             <NumericPredictor coefficient="-0.0709020711676" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="0.0586321248121" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.0501413656791" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="0.0402389738206" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.0936876236249" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.0248608986237" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.275109128311" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="utilities"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="0.405670046739" name="one"/>
+             <NumericPredictor coefficient="-0.0209137896016" name="age"/>
+             <NumericPredictor coefficient="-0.176608333067" name="gender"/>
+             <NumericPredictor coefficient="-0.00093817095468" name="city_pop"/>
+             <NumericPredictor coefficient="0.365801261482" name="holiday"/>
+             <NumericPredictor coefficient="-0.520373065559" name="post_holiday"/>
+             <NumericPredictor coefficient="0.939324943284" name="summer"/>
+             <NumericPredictor coefficient="0.00428511072611" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.0541681894366" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.0585594043531" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.0268258700412" name="prev_entertainment"/>
+             <NumericPredictor coefficient="0.0793693527189" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.101083286088" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.099321911385" name="prev_home"/>
+             <NumericPredictor coefficient="-0.188300358083" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0116688913176" name="prev_food_dining"/>
+             <NumericPredictor coefficient="0.0091513705862" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.0299467261785" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.115740564196" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="-0.11919577757" name="prev_utilities"/>
+             <NumericPredictor coefficient="0.0333217755535" name="prev_misc_net"/>
+             <NumericPredictor coefficient="0.00748461251978" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.125304613659" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="shopping_net"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="2.18864393644" name="one"/>
+             <NumericPredictor coefficient="-0.077684306709" name="age"/>
+             <NumericPredictor coefficient="0.192284989447" name="gender"/>
+             <NumericPredictor coefficient="-0.00248673142896" name="city_pop"/>
+             <NumericPredictor coefficient="0.343126194108" name="holiday"/>
+             <NumericPredictor coefficient="-0.326985189073" name="post_holiday"/>
+             <NumericPredictor coefficient="1.0621113585" name="summer"/>
+             <NumericPredictor coefficient="0.00902125208619" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.0570159147385" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.0649687460692" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.10026924346" name="prev_entertainment"/>
+             <NumericPredictor coefficient="0.00565011579315" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="0.0217558924113" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.0670533934385" name="prev_home"/>
+             <NumericPredictor coefficient="-0.0505727269675" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.141561531754" name="prev_food_dining"/>
+             <NumericPredictor coefficient="0.0027177583279" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.0642805309314" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.0482107958345" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="-0.136817492768" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.0437154164397" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.0807012548559" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.145368394043" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="home"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="-2.3158779573" name="one"/>
+             <NumericPredictor coefficient="0.0820728559984" name="age"/>
+             <NumericPredictor coefficient="-0.0392569315601" name="gender"/>
+             <NumericPredictor coefficient="-0.000954672345456" name="city_pop"/>
+             <NumericPredictor coefficient="0.289961515029" name="holiday"/>
+             <NumericPredictor coefficient="-0.289844869917" name="post_holiday"/>
+             <NumericPredictor coefficient="0.933148125658" name="summer"/>
+             <NumericPredictor coefficient="-0.0448248660185" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.00397391593243" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.0945069665789" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="0.0210154998626" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.0222303972789" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.0583736226809" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.121908420501" name="prev_home"/>
+             <NumericPredictor coefficient="0.0874721750594" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0256506799164" name="prev_food_dining"/>
+             <NumericPredictor coefficient="-0.0464849801012" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.0861503221788" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.125574527403" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="-0.0840670960098" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.00247227512496" name="prev_misc_net"/>
+             <NumericPredictor coefficient="0.000355448713372" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.121754032323" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="entertainment"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="1.76496304874" name="one"/>
+             <NumericPredictor coefficient="-0.0554960311385" name="age"/>
+             <NumericPredictor coefficient="-0.162573380394" name="gender"/>
+             <NumericPredictor coefficient="-0.00101521470164" name="city_pop"/>
+             <NumericPredictor coefficient="0.314225057803" name="holiday"/>
+             <NumericPredictor coefficient="-0.407588346291" name="post_holiday"/>
+             <NumericPredictor coefficient="1.19360477143" name="summer"/>
+             <NumericPredictor coefficient="-0.0718432597914" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.0341163332783" name="prev_travel"/>
+             <NumericPredictor coefficient="0.0309827149882" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.0872495383366" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.0787588283231" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.00963841351526" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.0530827939559" name="prev_home"/>
+             <NumericPredictor coefficient="-0.0698922224541" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.14861826021" name="prev_food_dining"/>
+             <NumericPredictor coefficient="-0.0367847270898" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.127993035597" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.15654874812" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="-0.130338432983" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.0482337763783" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.169164853274" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.183949308877" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="misc_net"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="2.18094352861" name="one"/>
+             <NumericPredictor coefficient="-0.0772055487039" name="age"/>
+             <NumericPredictor coefficient="-0.312194080002" name="gender"/>
+             <NumericPredictor coefficient="-0.00154354202867" name="city_pop"/>
+             <NumericPredictor coefficient="0.36766403416" name="holiday"/>
+             <NumericPredictor coefficient="-0.242306346457" name="post_holiday"/>
+             <NumericPredictor coefficient="1.10624098301" name="summer"/>
+             <NumericPredictor coefficient="-0.0234490317441" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.172267698806" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.123945266911" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.056559622247" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.137881055798" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.0268046748536" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.0540539264029" name="prev_home"/>
+             <NumericPredictor coefficient="0.0513455675864" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.134389346975" name="prev_food_dining"/>
+             <NumericPredictor coefficient="-0.121303154527" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.0728694357992" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.0967793007652" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="-0.0975322460199" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.125527665295" name="prev_misc_net"/>
+             <NumericPredictor coefficient="0.0208181230133" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.00466772839679" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="kids_pets"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="0.933710866647" name="one"/>
+             <NumericPredictor coefficient="-0.0344228196611" name="age"/>
+             <NumericPredictor coefficient="-0.0830896051327" name="gender"/>
+             <NumericPredictor coefficient="-0.000624303406182" name="city_pop"/>
+             <NumericPredictor coefficient="0.32462207729" name="holiday"/>
+             <NumericPredictor coefficient="-0.357354236132" name="post_holiday"/>
+             <NumericPredictor coefficient="1.13773107471" name="summer"/>
+             <NumericPredictor coefficient="-0.05650947032" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.166731280627" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.156618179061" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.103823020747" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.045211357356" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.0829696291238" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.158463470998" name="prev_home"/>
+             <NumericPredictor coefficient="0.0760419045728" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0759113017551" name="prev_food_dining"/>
+             <NumericPredictor coefficient="0.125206800694" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.0154175285435" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.0428881893266" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="-0.0816671503104" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.0961405440331" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.025170952848" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.074388637559" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="travel"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="-1.3296967943" name="one"/>
+             <NumericPredictor coefficient="0.0252630983091" name="age"/>
+             <NumericPredictor coefficient="-0.038256070034" name="gender"/>
+             <NumericPredictor coefficient="-0.00331699028693" name="city_pop"/>
+             <NumericPredictor coefficient="0.285725024686" name="holiday"/>
+             <NumericPredictor coefficient="-0.182248738824" name="post_holiday"/>
+             <NumericPredictor coefficient="0.818231514147" name="summer"/>
+             <NumericPredictor coefficient="-0.044255483984" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="0.0149601515085" name="prev_travel"/>
+             <NumericPredictor coefficient="0.0046035486545" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="0.0863867207648" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.0222020909517" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.0998058880479" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="-0.0303952707639" name="prev_home"/>
+             <NumericPredictor coefficient="0.0966619450924" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0843356862767" name="prev_food_dining"/>
+             <NumericPredictor coefficient="-0.0140443478758" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.111898399939" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.144510171652" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="0.0357137822737" name="prev_utilities"/>
+             <NumericPredictor coefficient="-0.0479780161203" name="prev_misc_net"/>
+             <NumericPredictor coefficient="-0.0433843726845" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.149696677379" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+       <Segment>
+         <SimplePredicate field="y_category" operator="equal" value="grocery_net"/>
+         <RegressionModel functionName="classification" normalizationMethod="softmax">
+           <MiningSchema>
+             <MiningField name="ybool" usageType="predicted"/>
+             <MiningField name="one"/>
+             <MiningField name="age"/>
+             <MiningField name="gender"/>
+             <MiningField name="city_pop"/>
+             <MiningField name="holiday"/>
+             <MiningField name="post_holiday"/>
+             <MiningField name="summer"/>
+             <MiningField name="prev_grocery_pos"/>
+             <MiningField name="prev_travel"/>
+             <MiningField name="prev_gas_transport"/>
+             <MiningField name="prev_entertainment"/>
+             <MiningField name="prev_pharmacy"/>
+             <MiningField name="prev_misc_pos"/>
+             <MiningField name="prev_home"/>
+             <MiningField name="prev_grocery_net"/>
+             <MiningField name="prev_food_dining"/>
+             <MiningField name="prev_health_fitness"/>
+             <MiningField name="prev_kids_pets"/>
+             <MiningField name="prev_shopping_pos"/>
+             <MiningField name="prev_utilities"/>
+             <MiningField name="prev_misc_net"/>
+             <MiningField name="prev_personal_care"/>
+             <MiningField name="prev_shopping_net"/>
+           </MiningSchema>
+          
+           <RegressionTable intercept="0.0" targetCategory="True">
+             <NumericPredictor coefficient="-3.13263097425" name="one"/>
+             <NumericPredictor coefficient="0.0524860602448" name="age"/>
+             <NumericPredictor coefficient="0.406250718732" name="gender"/>
+             <NumericPredictor coefficient="0.00116187841217" name="city_pop"/>
+             <NumericPredictor coefficient="0.193146407808" name="holiday"/>
+             <NumericPredictor coefficient="-0.243025360095" name="post_holiday"/>
+             <NumericPredictor coefficient="0.697373764472" name="summer"/>
+             <NumericPredictor coefficient="0.0254714806305" name="prev_grocery_pos"/>
+             <NumericPredictor coefficient="-0.102710642473" name="prev_travel"/>
+             <NumericPredictor coefficient="-0.118224880881" name="prev_gas_transport"/>
+             <NumericPredictor coefficient="-0.0385762359383" name="prev_entertainment"/>
+             <NumericPredictor coefficient="-0.0647249040276" name="prev_pharmacy"/>
+             <NumericPredictor coefficient="-0.15838899364" name="prev_misc_pos"/>
+             <NumericPredictor coefficient="0.0232841639297" name="prev_home"/>
+             <NumericPredictor coefficient="-0.0696778390511" name="prev_grocery_net"/>
+             <NumericPredictor coefficient="-0.0570427742094" name="prev_food_dining"/>
+             <NumericPredictor coefficient="-0.00102955806794" name="prev_health_fitness"/>
+             <NumericPredictor coefficient="-0.029491817068" name="prev_kids_pets"/>
+             <NumericPredictor coefficient="-0.0719268612029" name="prev_shopping_pos"/>
+             <NumericPredictor coefficient="0.155270726221" name="prev_utilities"/>
+             <NumericPredictor coefficient="0.1312932235" name="prev_misc_net"/>
+             <NumericPredictor coefficient="0.0664797686373" name="prev_personal_care"/>
+             <NumericPredictor coefficient="-0.0821161090976" name="prev_shopping_net"/>
+           </RegressionTable>
+           <RegressionTable intercept="0.0" targetCategory="False"/>
+         </RegressionModel>
+       </Segment>
+     </Segmentation>
+   </MiningModel>
+ </PMML>
